@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
@@ -56,5 +57,18 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function destroyUser(Request $request, $id): RedirectResponse
+    {
+        // Check if the authenticated user has the privilege to delete users (add your own logic here)
+        $userToDelete = DB::table('users')->where('id', $id)->first();
+
+        if ($userToDelete) {
+            DB::table('users')->where('id', $id)->delete();
+            return Redirect::back()->with('success', 'User deleted successfully.');
+        }
+
+        return Redirect::back()->with('error', 'You do not have the privilege to delete this user.');
     }
 }
