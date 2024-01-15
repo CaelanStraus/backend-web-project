@@ -5,11 +5,21 @@
             <div class="flex">
 
                 <!-- Navigation Links -->
+
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('homepage')" :active="request()->routeIs('homepage')">
                         {{ __('Homepage') }}
                     </x-nav-link>
                 </div>
+
+                @if(Auth::check())
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('profile.showUserProfile', ['id' => Auth::user()->id])">
+                            {{ __('Profile') }}
+                        </x-nav-link>
+
+                    </div>
+                @endif
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('news')" :active="request()->routeIs('news')">

@@ -13,6 +13,14 @@
                             <p class="form-control-static">{{ $user->email }}</p>
                         </div>
                         <div class="form-group">
+                            <label for="dob">Date of Birth:</label>
+                            <p class="form-control-static">{{ $user->dob }}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">Biography:</label>
+                            <p class="form-control-static">{{ $user->bio }}</p>
+                        </div>
+                        <div class="form-group">
                             <label for="role">Role:</label>
                             <p class="form-control-static">{{ $user->role }}</p>
                         </div>
