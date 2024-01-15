@@ -21,7 +21,9 @@
                 @foreach (DB::table('users')->get() as $user)
                     <tr>
                         <td style="color: white;">{{ $user->id }}</td>
-                        <td style="color: white;">{{ $user->name }}</td>
+                        <td style="color: white;">
+                            <a href="{{ route('profile.showUserProfile', $user->id) }}">{{ $user->name }}</a>
+                        </td>
                         <td style="color: white;">{{ $user->email }}</td>
                         <td style="color: white;">{{ $user->role }}</td>
                         <td style="color: white;">

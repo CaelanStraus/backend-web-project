@@ -88,4 +88,14 @@ class ProfileController extends Controller
         return redirect()->back()->with('success', 'User demoted successfully.');
     }
 
+    public function showUserProfile($id)
+    {
+        $user = User::find($id);
+
+        if ($user) {
+            return view('profilePage', compact('user'));
+        }
+
+        return redirect()->route('home')->with('error', 'User not found.');
+    }
 }
