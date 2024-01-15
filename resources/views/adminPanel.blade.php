@@ -22,8 +22,16 @@
                     <tr>
                         <td style="color: white;">{{ $user->id }}</td>
                         <td style="color: white;">
-                            <a href="{{ route('profile.showUserProfile', $user->id) }}">{{ $user->name }}</a>
+                            @if(Auth::check())
+                                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                    <x-nav-link :href="route('profile.showUserProfile', ['id' => $user->id])">
+                                        {{ $user->name }}
+                                    </x-nav-link>
+
+                                </div>
+                            @endif
                         </td>
+
                         <td style="color: white;">{{ $user->email }}</td>
                         <td style="color: white;">{{ $user->role }}</td>
                         <td style="color: white;">
