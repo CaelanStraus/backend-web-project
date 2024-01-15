@@ -27,6 +27,9 @@
             <li class="mb-2">
                 <strong>Hypixel Skyblock:</strong>For more information on Hypixel SkyBlock, you can visit the <a href="https://hypixel-skyblock.fandom.com/wiki/Hypixel_SkyBlock_Wiki" target="_blank" class="text-blue-500">Hypixel SkyBlock Wiki</a>.
             </li>
+            <li class="mb-2">
+                <strong>GitHub:</strong> Find the source code on GitHub <a href="https://github.com/CaelanStraus/backend-web-project" target="_blank" class="text-blue-500">here</a>.
+            </li>
         </ul>
     </div>
 </x-app-layout>
