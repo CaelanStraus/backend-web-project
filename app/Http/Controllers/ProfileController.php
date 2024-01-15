@@ -72,6 +72,32 @@ class ProfileController extends Controller
         return Redirect::back()->with('error', 'You do not have the privilege to delete this user.');
     }
 
+    public function updateDOB(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'dob' => ['required', 'date'],
+        ]);
+
+        $request->user()->update([
+            'dob' => $request->input('dob'),
+        ]);
+
+        return Redirect::route('profile.edit')->with('status', 'dob-updated');
+    }
+
+    public function updateBio(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'bio' => ['nullable', 'string', 'max:255'],
+        ]);
+
+        $request->user()->update([
+            'bio' => $request->input('bio'),
+        ]);
+
+        return Redirect::route('profile.edit')->with('status', 'bio-updated');
+    }
+
     public function promoteUser($id)
     {
         $user = (array) DB::table('users')->where('id', $id)->first();

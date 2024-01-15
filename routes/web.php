@@ -45,6 +45,8 @@ Route::get('/adminPanel', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::patch('/profile/update-dob', [ProfileController::class, 'updateDOB'])->name('profile.update.dob');
+    Route::patch('/profile/update-bio', [ProfileController::class, 'updateBio'])->name('profile.update.bio');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::delete('/user/{id}', [ProfileController::class, 'destroyUser'])->name('user.destroy');
     Route::post('/user/{id}/promote', [ProfileController::class, 'promoteUser'])->name('user.promote');
