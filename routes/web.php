@@ -50,8 +50,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/user/{id}/promote', [ProfileController::class, 'promoteUser'])->name('user.promote');
     Route::post('/user/{id}/demote', [ProfileController::class, 'demoteUser'])->name('user.demote');
     Route::get('/profile/{id}/show', [ProfileController::class, 'showUserProfile'])->name('profile.showUserProfile');
-    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
-    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 });
 
 require __DIR__.'/auth.php';

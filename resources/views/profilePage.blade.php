@@ -1,6 +1,6 @@
 <x-app-layout>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <div class="container mt-5">
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+    <div class="container">
         <div class="card">
             <div class="card-header">
                 <h1 class="mb-0">{{ $user->name }}</h1>
