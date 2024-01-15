@@ -45,6 +45,12 @@
                     </x-nav-link>
                 </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('searchProfiles')" :active="request()->routeIs('searchProfiles')">
+                        {{ __('Search Profiles') }}
+                    </x-nav-link>
+                </div>
+
                 @if(Auth::check() && Auth::user()->role == 'admin')
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('adminPanel')" :active="request()->routeIs('adminPanel')">

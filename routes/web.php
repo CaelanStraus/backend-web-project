@@ -38,6 +38,10 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+Route::get('/searchProfiles', function () {
+    return view('searchProfiles');
+})->name('searchProfiles');
+
 Route::get('/adminPanel', function () {
     return view('adminPanel');
 })->name('adminPanel');
