@@ -31,6 +31,18 @@
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
+
+                                @if(auth()->user()->role === 'admin' && $user->role === 'user')
+                                    <form id="promoteUserForm-{{ $user->id }}" method="post" action="{{ route('user.promote', $user->id) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success">Promote</button>
+                                    </form>
+                                @elseif(auth()->user()->role === 'admin' && $user->role === 'admin')
+                                    <form id="demoteUserForm-{{ $user->id }}" method="post" action="{{ route('user.demote', $user->id) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-warning">Demote</button>
+                                    </form>
+                                @endif
                             @endif
                         </td>
                     </tr>

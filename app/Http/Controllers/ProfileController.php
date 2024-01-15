@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -61,7 +62,6 @@ class ProfileController extends Controller
 
     public function destroyUser(Request $request, $id): RedirectResponse
     {
-        // Check if the authenticated user has the privilege to delete users (add your own logic here)
         $userToDelete = DB::table('users')->where('id', $id)->first();
 
         if ($userToDelete) {
@@ -71,4 +71,21 @@ class ProfileController extends Controller
 
         return Redirect::back()->with('error', 'You do not have the privilege to delete this user.');
     }
+
+    public function promoteUser($id)
+    {
+        $user = (array) DB::table('users')->where('id', $id)->first();
+        User::where('id', $id)->update(['role' => 'admin']);
+
+        return redirect()->back()->with('success', 'User promoted successfully.');
+    }
+
+    public function demoteUser($id)
+    {
+        $user = (array) DB::table('users')->where('id', $id)->first();
+        User::where('id', $id)->update(['role' => 'user']);
+
+        return redirect()->back()->with('success', 'User demoted successfully.');
+    }
+
 }

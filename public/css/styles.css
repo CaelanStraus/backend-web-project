@@ -48,3 +48,21 @@ thead {
     cursor: pointer;
     border-radius: 3px;
 }
+
+.btn-success {
+    background-color: #28a745; /* Change this color as needed */
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.btn-warning {
+    background-color: #ffc107; /* Change this color as needed */
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 3px;
+}
